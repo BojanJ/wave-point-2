@@ -1,0 +1,161 @@
+[
+  {
+    "id": "classic",
+    "name": "Wavepoint Classic",
+    "tagline": "The original Mediterranean retreat",
+    "description": "Our flagship apartment offers an authentic Greek island experience. With stunning panoramic sea views, traditional Mediterranean design elements, and all modern comforts, this space captures the very essence of Greek island living. The apartment features a spacious open-plan living area, a fully equipped kitchen, and a private terrace where you can enjoy breathtaking sunsets over the Aegean Sea.",
+    "capacity": 4,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "size": "65 m²",
+    "floor": "1st Floor",
+    "view": "Panoramic Sea View",
+    "images": [
+      "/images/classic-1.jpg",
+      "/images/classic-2.jpg",
+      "/images/classic-3.jpg"
+    ],
+    "amenities": [
+      "High-Speed WiFi",
+      "Air Conditioning",
+      "Fully Equipped Kitchen",
+      "Private Terrace",
+      "Sea View",
+      "Swimming Pool Access",
+      "Private Parking",
+      "Smart TV",
+      "Washing Machine",
+      "Beach Towels Provided"
+    ],
+    "features": [
+      "Open-plan living area",
+      "King-size bed",
+      "Traditional Mediterranean decor",
+      "Panoramic sea views from terrace",
+      "Daily housekeeping available"
+    ],
+    "badge": "Classic",
+    "price_from": "€120/night"
+  },
+  {
+    "id": "2-1",
+    "name": "Wavepoint 2.1",
+    "tagline": "Contemporary luxury meets Mediterranean soul",
+    "description": "Room 2.1 is the first of our stunning new Wavepoint 2.0 collection. Situated on the new upper floor, this apartment has been designed with a contemporary aesthetic that pays homage to the natural beauty surrounding it. Floor-to-ceiling windows frame the breathtaking sea view, while premium materials and thoughtful design create an atmosphere of refined luxury. The private terrace invites you to dine al fresco under the stars.",
+    "capacity": 2,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "size": "55 m²",
+    "floor": "2nd Floor",
+    "view": "Sea View & Garden",
+    "images": [
+      "/images/2-1-hero.jpg",
+      "/images/2-1-living.jpg",
+      "/images/2-1-bedroom.jpg"
+    ],
+    "amenities": [
+      "High-Speed WiFi",
+      "Air Conditioning",
+      "Fully Equipped Kitchen",
+      "Private Terrace",
+      "Sea & Garden View",
+      "Swimming Pool Access",
+      "Private Parking",
+      "Smart TV",
+      "Washing Machine",
+      "Premium Bedding",
+      "Nespresso Machine"
+    ],
+    "features": [
+      "Floor-to-ceiling windows",
+      "Queen-size bed with premium mattress",
+      "Contemporary Mediterranean design",
+      "Al-fresco dining terrace",
+      "Premium bathroom amenities"
+    ],
+    "badge": "2.0 New",
+    "price_from": "€110/night"
+  },
+  {
+    "id": "2-2",
+    "name": "Wavepoint 2.2",
+    "tagline": "Spacious elegance for the whole family",
+    "description": "Room 2.2 is the largest of the Wavepoint 2.0 collection, designed with families and groups in mind. This spacious apartment features two beautifully appointed bedrooms, a generous open-plan living and dining area, and a large private terrace perfect for al-fresco breakfasts and sunset dinners. Modern Mediterranean design flows throughout, with carefully selected furnishings that combine aesthetic beauty with practical comfort.",
+    "capacity": 5,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "size": "80 m²",
+    "floor": "2nd Floor",
+    "view": "Full Sea View",
+    "images": [
+      "/images/2-2-hero.jpg",
+      "/images/2-2-living.jpg",
+      "/images/2-2-bedroom.jpg"
+    ],
+    "amenities": [
+      "High-Speed WiFi",
+      "Air Conditioning",
+      "Fully Equipped Kitchen",
+      "Large Private Terrace",
+      "Full Sea View",
+      "Swimming Pool Access",
+      "Private Parking",
+      "Smart TV",
+      "Washing Machine",
+      "Premium Bedding",
+      "Nespresso Machine",
+      "Dining Area for 6"
+    ],
+    "features": [
+      "Two bedrooms (1 king, 1 twin/queen)",
+      "Spacious open-plan living area",
+      "Large terrace with outdoor dining set",
+      "Full sea view from all main rooms",
+      "Family-friendly layout"
+    ],
+    "badge": "2.0 New",
+    "price_from": "€160/night"
+  },
+  {
+    "id": "2-3",
+    "name": "Wavepoint 2.3",
+    "tagline": "The ultimate couple's sanctuary",
+    "description": "Room 2.3 is the jewel of the Wavepoint 2.0 collection — an intimate, carefully crafted space designed for couples seeking a truly romantic escape. Every detail has been considered to create an atmosphere of pure luxury and tranquility. The suite features a premium king-size bed positioned to maximize the spectacular sea views, a spa-inspired bathroom with a freestanding bathtub, and a private terrace that feels like your own personal piece of paradise.",
+    "capacity": 2,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "size": "60 m²",
+    "floor": "2nd Floor",
+    "view": "Panoramic Sea View",
+    "images": [
+      "/images/2-3-hero.jpg",
+      "/images/2-3-living.jpg",
+      "/images/2-3-bedroom.jpg"
+    ],
+    "amenities": [
+      "High-Speed WiFi",
+      "Air Conditioning",
+      "Fully Equipped Kitchen",
+      "Private Terrace",
+      "Panoramic Sea View",
+      "Swimming Pool Access",
+      "Private Parking",
+      "Smart TV",
+      "Washing Machine",
+      "Luxury Bedding",
+      "Nespresso Machine",
+      "Freestanding Bathtub",
+      "Premium Bathroom Amenities",
+      "Welcome Champagne"
+    ],
+    "features": [
+      "King-size bed with sea view",
+      "Spa-inspired bathroom with freestanding tub",
+      "Private romantic terrace",
+      "Curated luxury amenities",
+      "Turndown service available"
+    ],
+    "badge": "2.0 Suite",
+    "price_from": "€150/night"
+  }
+]
