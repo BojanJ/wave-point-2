@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
+import GalleryGrid from '@/components/gallery/GalleryGrid';
+import galleryImages from '../../../../public/data/gallery.json';
 
 const imageMap = {
   'classic': [
@@ -31,6 +33,7 @@ export default function RoomDetail({ property }) {
   const { t } = useLanguage();
   const [activeImage, setActiveImage] = useState(0);
   const images = imageMap[property.id] || imageMap['classic'];
+  const roomGalleryImages = galleryImages.filter((img) => img.category === property.id);
 
   return (
     <div className="min-h-screen bg-white">
@@ -141,6 +144,14 @@ export default function RoomDetail({ property }) {
                 ))}
               </div>
             </div>
+
+            {/* Room Gallery */}
+            {roomGalleryImages.length > 0 && (
+              <div className="mt-10">
+                <h2 className="heading-md text-ocean-800 mb-4">{t('apartment_detail.gallery')}</h2>
+                <GalleryGrid images={roomGalleryImages} />
+              </div>
+            )}
           </div>
 
           {/* Booking Sidebar */}
