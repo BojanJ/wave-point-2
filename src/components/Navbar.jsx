@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
+import WaveLogo from '@/components/WaveLogo';
 
 export default function Navbar() {
   const { t, locale, setLocale } = useLanguage();
@@ -45,14 +46,20 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="relative">
-              <span className={`font-serif text-2xl font-bold tracking-tight transition-colors ${
+          <Link href="/" className="flex items-center gap-3">
+            <WaveLogo
+              size={36}
+              className={`transition-colors duration-500 ${
+                isScrolled ? 'text-brand-gold' : 'text-white'
+              }`}
+            />
+            <div>
+              <span className={`font-serif text-xl font-bold tracking-tight leading-none transition-colors duration-500 ${
                 isScrolled ? 'text-brand-charcoal' : 'text-white'
               }`}>
                 Wave<span className="text-brand-gold">point</span>
               </span>
-              <span className={`text-xs font-medium tracking-[0.1em] block transition-colors ${
+              <span className={`text-[10px] font-medium tracking-[0.1em] block mt-0.5 transition-colors duration-500 ${
                 isScrolled ? 'text-brand-clay' : 'text-white/70'
               }`}>
                 APARTMENTS

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import ParallaxImage from '@/components/ParallaxImage';
+import WaveLogo from '@/components/WaveLogo';
 import properties from '../../public/data/properties.json';
 
 function AnimatedSection({ children, className }) {
@@ -51,6 +52,7 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.3 }}
           >
+            <WaveLogo size={64} className="text-white/90 mx-auto mb-6" />
             <p className="text-brand-stone text-xs font-medium tracking-[0.2em] uppercase mb-6">
               Greece · Mediterranean · Luxury
             </p>
@@ -234,6 +236,7 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
+            <WaveLogo size={40} className="text-brand-gold mx-auto mb-5 opacity-90" />
             <p className="text-brand-stone text-xs tracking-[0.4em] uppercase mb-4">Reserve Your Stay</p>
             <h2 className="heading-lg text-white mb-8">Your Mediterranean Story Starts Here</h2>
             <Link href="/contact" className="bg-brand-gold hover:bg-brand-gold-dark text-white font-medium px-10 py-4 rounded-full transition-all duration-300 text-sm tracking-wide shadow-lg hover:shadow-xl">

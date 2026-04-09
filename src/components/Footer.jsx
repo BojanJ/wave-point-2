@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
+import WaveLogo from '@/components/WaveLogo';
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -12,10 +13,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Brand */}
           <div>
-            <h3 className="font-serif text-2xl font-bold mb-2">
-              Wave<span className="text-brand-gold">point</span>
-            </h3>
-            <p className="text-white/40 text-xs tracking-[0.25em] mb-5">APARTMENTS</p>
+            <Link href="/" className="inline-flex items-center gap-3 mb-4">
+              <WaveLogo size={38} className="text-brand-gold" />
+              <div>
+                <span className="font-serif text-xl font-bold text-white leading-none">
+                  Wave<span className="text-brand-gold">point</span>
+                </span>
+                <span className="text-[10px] font-medium tracking-[0.1em] text-white/40 block mt-0.5">
+                  APARTMENTS
+                </span>
+              </div>
+            </Link>
             <p className="text-white/55 text-sm leading-relaxed">
               {t('footer.tagline')}
             </p>
