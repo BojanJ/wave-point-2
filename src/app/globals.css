@@ -88,6 +88,30 @@
     background-color: var(--color-brand-sand);
     color: var(--color-brand-charcoal);
   }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-brand-clay) var(--color-brand-sand-dark);
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--color-brand-sand-dark);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--color-brand-clay);
+    border-radius: 4px;
+    border: 2px solid var(--color-brand-sand-dark);
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-brand-clay-dark);
+  }
 }
 
 @layer components {
