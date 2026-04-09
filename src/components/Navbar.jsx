@@ -5,9 +5,10 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import WaveLogo from '@/components/WaveLogo';
+import LanguageDropdown from '@/components/LanguageDropdown';
 
 export default function Navbar() {
-  const { t, locale, setLocale } = useLanguage();
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const pathname = usePathname();
@@ -86,17 +87,8 @@ export default function Navbar() {
               </Link>
             ))}
 
-            {/* Language Toggle */}
-            <button
-              onClick={() => setLocale(locale === 'en' ? 'el' : 'en')}
-              className={`text-xs font-medium tracking-widest px-3 py-1 rounded-full border transition-all duration-200 ${
-                isScrolled
-                  ? 'border-brand-clay/50 text-brand-clay-dark hover:bg-brand-stone/50'
-                  : 'border-white/40 text-white/80 hover:bg-white/10'
-              }`}
-            >
-              {locale === 'en' ? 'GR' : 'EN'}
-            </button>
+            {/* Language Dropdown */}
+            <LanguageDropdown isScrolled={isScrolled} />
 
             <Link
               href="/contact"
@@ -108,14 +100,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-3">
-            <button
-              onClick={() => setLocale(locale === 'en' ? 'el' : 'en')}
-              className={`text-xs font-medium tracking-widest px-2 py-1 rounded-full border transition-all ${
-                isScrolled ? 'border-brand-clay/50 text-brand-clay-dark' : 'border-white/40 text-white'
-              }`}
-            >
-              {locale === 'en' ? 'GR' : 'EN'}
-            </button>
+            <LanguageDropdown isScrolled={isScrolled} />
             <button
               onClick={() => setIsMobileOpen(!isMobileOpen)}
               className={`p-2 rounded-lg transition-colors ${
