@@ -60,8 +60,8 @@ export default function Footer() {
               {t('contact.contact_info_title')}
             </h4>
             <ul className="space-y-2.5 text-sm text-white/55">
-              <li>📞 {t('contact.phone')}</li>
-              <li>✉️ {t('contact.email')}</li>
+              <li>📞 <a href="tel:+306948145850" className="text-inherit no-underline">{t('contact.phone')}</a></li>
+              <li>✉️ <a href="mailto:contact@wavepoint-apartments.com" className="text-inherit no-underline">{t('contact.email')}</a></li>
               <li>📍 {t('contact.address')}</li>
             </ul>
           </div>

@@ -255,8 +255,8 @@ export default function ContactPage() {
             {/* Contact Info */}
             <div className="mt-6 grid grid-cols-3 gap-4">
               {[
-                { icon: "📞", text: t("contact.phone") },
-                { icon: "✉️", text: t("contact.email") },
+                { icon: "📞", text: t("contact.phone"), href: "tel:+306948145850" },
+                { icon: "✉️", text: t("contact.email"), href: "mailto:contact@wavepoint-apartments.com" },
                 { icon: "📍", text: t("contact.address") },
               ].map((item) => (
                 <div
@@ -265,7 +265,11 @@ export default function ContactPage() {
                 >
                   <div className="text-2xl mb-2">{item.icon}</div>
                   <div className="text-xs text-brand-clay-dark">
-                    {item.text}
+                    {item.href ? (
+                      <a href={item.href} className="text-inherit no-underline">{item.text}</a>
+                    ) : (
+                      item.text
+                    )}
                   </div>
                 </div>
               ))}

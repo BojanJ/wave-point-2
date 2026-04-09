@@ -123,17 +123,31 @@ export default function AreaPage() {
             <h2 className="heading-lg text-white mb-4">{t('area.map_title')}</h2>
             <div className="w-12 h-px bg-brand-gold mx-auto" />
           </motion.div>
-          <div className="overflow-hidden h-96">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.0!2d24.0!3d37.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDA!5e0!3m2!1sen!2sgr!4v1234567890"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Wavepoint Location"
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="overflow-hidden h-80">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144!2d23.7080713!3d40.7195454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a91f2a189177b9%3A0xbdd9645b7ad8d9f7!2sWave%20Point%20Apartment!5e0!3m2!1sen!2sgr!4v1744317600000!5m2!1sen!2sgr"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Wave Point Apartment"
+              />
+            </div>
+            <div className="overflow-hidden h-80">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144!2d23.7083191!3d40.7199581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a91f54cca06c93%3A0x99d59b5154bfe9e1!2sMassiseto%20Burger%20House!5e0!3m2!1sen!2sgr!4v1744317600001!5m2!1sen!2sgr"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Massiseto Burger House"
+              />
+            </div>
           </div>
         </div>
       </section>
