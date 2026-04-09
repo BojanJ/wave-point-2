@@ -3,16 +3,16 @@
 
 @theme {
   /* Brand: Modern Mediterranean */
-  --color-brand-sand: #F5F2ED;
-  --color-brand-sand-dark: #EAE4DB;
-  --color-brand-clay: #A3927E;
-  --color-brand-clay-light: #C4B5A5;
-  --color-brand-clay-dark: #7A6B5A;
-  --color-brand-gold: #C5A059;
-  --color-brand-gold-dark: #A8843C;
-  --color-brand-charcoal: #33302E;
-  --color-brand-charcoal-light: #5C5754;
-  --color-brand-stone: #D9D2C5;
+  --color-brand-sand: #f5f2ed;
+  --color-brand-sand-dark: #eae4db;
+  --color-brand-clay: #a3927e;
+  --color-brand-clay-light: #c4b5a5;
+  --color-brand-clay-dark: #7a6b5a;
+  --color-brand-gold: #c5a059;
+  --color-brand-gold-dark: #a8843c;
+  --color-brand-charcoal: #33302e;
+  --color-brand-charcoal-light: #5c5754;
+  --color-brand-stone: #d9d2c5;
 
   --color-ocean-50: #f0f7ff;
   --color-ocean-100: #e0f0ff;
@@ -62,31 +62,43 @@
   --color-terracotta-900: #822414;
   --color-terracotta-950: #470e05;
 
-  --font-sans: 'Inter', sans-serif;
-  --font-serif: 'Playfair Display', 'Lora', serif;
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Playfair Display", "Lora", serif;
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-wave: wave 3s ease-in-out infinite;
 
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
   }
 
   @keyframes wave {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(5deg); }
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
   }
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
     background-color: var(--color-brand-sand);
     color: var(--color-brand-charcoal);
+    overflow-x: hidden;
   }
 
   * {
@@ -254,7 +266,11 @@
 
 @layer utilities {
   .text-gradient {
-    background-image: linear-gradient(to right, var(--color-brand-gold), var(--color-brand-clay));
+    background-image: linear-gradient(
+      to right,
+      var(--color-brand-gold),
+      var(--color-brand-clay)
+    );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
