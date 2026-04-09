@@ -169,6 +169,10 @@
     "language_gr": "GR",
     "loading": "Loading...",
     "close": "Close",
-    "menu": "Menu"
+    "menu": "Menu",
+    "language_mk": "Macedonian",
+    "language_sr": "Serbian",
+    "language_bg": "Bulgarian",
+    "language_ro": "Romanian"
   }
 }
