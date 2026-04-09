@@ -73,7 +73,7 @@ const pageMetaByLocale = {
     sr: {
       title: 'Wavepoint 2.0 | Luksuzni Apartmani Grčka | Pogled na Egejsko More',
       description:
-        'Otkrijte Wavepoint 2.0 — butik luksuzne apartmane u Asprovaltи, Grčka. Panoramski pogled na Egejsko more, privatne terase, pristup bazenu.',
+        'Otkrijte Wavepoint 2.0 — butik luksuzne apartmane u Asprovalta, Grčka. Panoramski pogled na Egejsko more, privatne terase, pristup bazenu.',
       keywords: [
         'luksuzni apartmani Grčka',
         'Wavepoint 2.0',
@@ -141,7 +141,7 @@ const pageMetaByLocale = {
     sr: {
       title: 'Naši Apartmani | Wavepoint 2.0 | Luksuzni Odmor Grčka',
       description:
-        'Pregledajte Wavepoint kolekciju — Classic, 2.1, 2.2 i 2.3. Luksuzni odmori u Asprovaltи, Grčka sa pogledom na Egejsko more od €110/noć.',
+        'Pregledajte Wavepoint kolekciju — Classic, 2.1, 2.2 i 2.3. Luksuzni odmori u Asprovalta, Grčka sa pogledom na Egejsko more od €110/noć.',
       keywords: ['luksuzni apartmani Grčka', 'odmor Asprovalta', 'Wavepoint'],
     },
     bg: {
@@ -185,7 +185,7 @@ const pageMetaByLocale = {
     sr: {
       title: 'O Wavepointu | Grčko Gostoprimstvo od 2018',
       description:
-        'Saznajte o Wavepoint Apartments — nastali iz ljubavi prema grčkom moru. Butik apartmani u Asprovaltи sa autentičnim mediteranskim gostoprimstvom.',
+        'Saznajte o Wavepoint Apartments — nastali iz ljubavi prema grčkom moru. Butik apartmani u Asprovalta sa autentičnim mediteranskim gostoprimstvom.',
       keywords: ['Wavepoint Apartments', 'grčko gostoprimstvo', 'Asprovalta'],
     },
     bg: {
@@ -230,7 +230,7 @@ const pageMetaByLocale = {
     sr: {
       title: 'Oblast | Asprovalta Grčka | Mediteranska Obalna Lokacija',
       description:
-        'Istražite predivnu okolinu Wavepoint Apartments u Asprovaltи, Grčka. Egejske plaže, lokalne taverne, ture čamcem.',
+        'Istražite predivnu okolinu Wavepoint Apartments u Asprovalta, Grčka. Egejske plaže, lokalne taverne, ture čamcem.',
       keywords: ['Asprovalta Grčka', 'Egejske plaže', 'Mediteran'],
     },
     bg: {
@@ -274,7 +274,7 @@ const pageMetaByLocale = {
     sr: {
       title: 'Rezervišite | Kontakt Wavepoint Apartments Grčka',
       description:
-        'Kontaktirajte Wavepoint Apartments u Asprovaltи. Pošaljite upit i rezervišite mediteranski odmor.',
+        'Kontaktirajte Wavepoint Apartments u Asprovalta. Pošaljite upit i rezervišite mediteranski odmor.',
       keywords: ['rezervacija Grčka', 'Wavepoint kontakt', 'Asprovalta'],
     },
     bg: {
