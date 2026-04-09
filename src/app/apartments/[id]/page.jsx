@@ -1,8 +1,16 @@
 import RoomDetail from './RoomDetail';
 import properties from '../../../../public/data/properties.json';
+import { getApartmentMetadata } from '@/lib/seoMetadata';
 
 export function generateStaticParams() {
   return properties.map((p) => ({ id: p.id }));
+}
+
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  const property = properties.find((p) => p.id === id);
+  if (!property) return {};
+  return getApartmentMetadata(property);
 }
 
 export default async function RoomDetailPage({ params }) {
