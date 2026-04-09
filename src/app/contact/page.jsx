@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
-import properties from '../../../public/data/properties.json';
+import BookingForm from '@/components/BookingForm';
 
 function FAQItem({ question, answer }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,16 +43,6 @@ function FAQItem({ question, answer }) {
 
 export default function ContactPage() {
   const { t } = useLanguage();
-  const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    room: '',
-    checkin: '',
-    checkout: '',
-    guests: '2',
-    message: '',
-  });
 
   const faqs = [
     { q: t('contact.faq_1_q'), a: t('contact.faq_1_a') },
@@ -62,24 +52,6 @@ export default function ContactPage() {
     { q: t('contact.faq_5_q'), a: t('contact.faq_5_a') },
     { q: t('contact.faq_6_q'), a: t('contact.faq_6_a') },
   ];
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-      setSubmitted(true);
-    } catch (err) {
-      setSubmitted(true);
-    }
-  };
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
   return (
     <div className="min-h-screen bg-brand-sand">
@@ -106,7 +78,7 @@ export default function ContactPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Contact Form */}
+          {/* Booking Form */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -114,127 +86,7 @@ export default function ContactPage() {
             transition={{ duration: 0.7 }}
           >
             <div className="bg-brand-sand border border-brand-stone p-8">
-              {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-16"
-                >
-                  <div className="text-5xl mb-6">✦</div>
-                  <h3 className="heading-md text-brand-charcoal mb-3">Thank you</h3>
-                  <p className="text-brand-clay">{t('contact.form_success')}</p>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-7">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
-                    <div>
-                      <label className="block text-xs font-medium tracking-[0.12em] text-brand-clay uppercase mb-2">
-                        {t('contact.form_name')} *
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        required
-                        value={formData.name}
-                        onChange={handleChange}
-                        className="input-luxury"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-medium tracking-[0.12em] text-brand-clay uppercase mb-2">
-                        {t('contact.form_email')} *
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="input-luxury"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-medium tracking-[0.12em] text-brand-clay uppercase mb-2">
-                      {t('contact.form_room')}
-                    </label>
-                    <select
-                      name="room"
-                      value={formData.room}
-                      onChange={handleChange}
-                      className="input-luxury bg-transparent"
-                    >
-                      <option value="">{t('contact.form_room_default')}</option>
-                      {properties.map((p) => (
-                        <option key={p.id} value={p.id}>{p.name}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-7">
-                    <div>
-                      <label className="block text-xs font-medium tracking-[0.12em] text-brand-clay uppercase mb-2">
-                        {t('contact.form_checkin')}
-                      </label>
-                      <input
-                        type="date"
-                        name="checkin"
-                        value={formData.checkin}
-                        onChange={handleChange}
-                        className="input-luxury"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-medium tracking-[0.12em] text-brand-clay uppercase mb-2">
-                        {t('contact.form_checkout')}
-                      </label>
-                      <input
-                        type="date"
-                        name="checkout"
-                        value={formData.checkout}
-                        onChange={handleChange}
-                        className="input-luxury"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-medium tracking-[0.12em] text-brand-clay uppercase mb-2">
-                        {t('contact.form_guests')}
-                      </label>
-                      <select
-                        name="guests"
-                        value={formData.guests}
-                        onChange={handleChange}
-                        className="input-luxury bg-transparent"
-                      >
-                        {[1,2,3,4,5,6].map((n) => (
-                          <option key={n} value={n}>{n}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-medium tracking-[0.12em] text-brand-clay uppercase mb-2">
-                      {t('contact.form_message')}
-                    </label>
-                    <textarea
-                      name="message"
-                      rows={4}
-                      value={formData.message}
-                      onChange={handleChange}
-                      className="input-luxury resize-none"
-                      placeholder="Tell us about your stay..."
-                    />
-                  </div>
-
-                  <button type="submit" className="w-full btn-primary py-4 text-sm tracking-widest">
-                    {t('contact.form_submit')}
-                  </button>
-                </form>
-              )}
+              <BookingForm />
             </div>
 
             {/* Contact Info */}
