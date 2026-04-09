@@ -122,7 +122,15 @@
     "contact_info_title": "Στοιχεία Επικοινωνίας",
     "phone": "+30 694 814 5850",
     "email": "contact@wavepoint-apartments.com",
-    "address": "Wavepoint Apartments, Asprovalta, Greece"
+    "address": "Wavepoint Apartments, Asprovalta, Greece",
+    "form_phone": "Αριθμός Τηλεφώνου",
+    "form_phone_placeholder": "π.χ. +30 694 000 0000",
+    "form_name_placeholder": "Το πλήρες όνομά σας",
+    "form_email_placeholder": "your@email.com",
+    "form_message_placeholder": "Πείτε μας για τη διαμονή σας…",
+    "form_sending": "Αποστολή…",
+    "form_error": "Κάτι πήγε στραβά. Δοκιμάστε ξανά ή επικοινωνήστε μαζί μας στο",
+    "form_error_whatsapp": "WhatsApp"
   },
   "gallery": {
     "title": "Γκαλερί",
