@@ -92,8 +92,8 @@
 
 @layer components {
   .section-padding {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -107,6 +107,8 @@
 
   @media (min-width: 1024px) {
     .section-padding {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
       padding-left: 2rem;
       padding-right: 2rem;
     }

@@ -51,7 +51,7 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.3 }}
           >
-            <p className="text-brand-stone text-xs font-medium tracking-[0.4em] uppercase mb-6">
+            <p className="text-brand-stone text-xs font-medium tracking-[0.2em] uppercase mb-6">
               Greece · Mediterranean · Luxury
             </p>
             <h1 className="heading-xl text-white mb-6 drop-shadow-lg">

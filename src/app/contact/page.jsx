@@ -11,9 +11,10 @@ function FAQItem({ question, answer }) {
     <div className="border-b border-brand-stone">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between py-5 text-left hover:text-brand-gold transition-colors"
+        className="w-full flex items-center justify-between py-5 text-left hover:text-brand-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2 transition-colors group"
+        aria-expanded={isOpen}
       >
-        <span className="font-medium text-brand-charcoal pr-4 text-sm">{question}</span>
+        <span className="font-medium text-brand-charcoal group-hover:text-brand-gold pr-4 text-sm transition-colors">{question}</span>
         <motion.span
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.2 }}

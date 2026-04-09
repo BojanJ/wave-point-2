@@ -52,7 +52,7 @@ export default function Navbar() {
               }`}>
                 Wave<span className="text-brand-gold">point</span>
               </span>
-              <span className={`text-xs font-medium tracking-[0.25em] block transition-colors ${
+              <span className={`text-xs font-medium tracking-[0.1em] block transition-colors ${
                 isScrolled ? 'text-brand-clay' : 'text-white/70'
               }`}>
                 APARTMENTS
