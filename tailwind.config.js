@@ -8,6 +8,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        brand: {
+          sand: '#F5F2ED',
+          clay: '#A3927E',
+          gold: '#C5A059',
+          charcoal: '#33302E',
+          stone: '#D9D2C5',
+          'sand-dark': '#EAE4DB',
+          'clay-light': '#C4B5A5',
+          'clay-dark': '#7A6B5A',
+          'gold-dark': '#A8843C',
+          'charcoal-light': '#5C5754',
+        },
         ocean: {
           50: '#f0f7ff',
           100: '#e0f0ff',

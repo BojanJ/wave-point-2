@@ -1,32 +1,40 @@
 'use client';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
+import WaveLogo from '@/components/WaveLogo';
 
 export default function Footer() {
   const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-ocean-900 text-white">
+    <footer className="bg-brand-charcoal text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold mb-2">
-              Wave<span className="text-azure-400">point</span>
-            </h3>
-            <p className="text-white/60 text-xs tracking-widest mb-4">APARTMENTS</p>
-            <p className="text-ocean-300 text-sm leading-relaxed">
+            <Link href="/" className="inline-flex items-center gap-3 mb-4">
+              <WaveLogo size={38} className="text-brand-gold" />
+              <div>
+                <span className="font-serif text-xl font-bold text-white leading-none">
+                  Wave<span className="text-brand-gold">point</span>
+                </span>
+                <span className="text-[10px] font-medium tracking-[0.1em] text-white/40 block mt-0.5">
+                  APARTMENTS
+                </span>
+              </div>
+            </Link>
+            <p className="text-white/55 text-sm leading-relaxed">
               {t('footer.tagline')}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-sm font-semibold tracking-wider text-ocean-300 uppercase mb-4">
+            <h4 className="text-xs font-semibold tracking-[0.2em] text-brand-clay-light uppercase mb-5">
               {t('footer.links_title')}
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {[
                 { href: '/', label: t('nav.home') },
                 { href: '/apartments', label: t('nav.apartments') },
@@ -37,7 +45,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-ocean-300 hover:text-azure-400 text-sm transition-colors"
+                    className="text-white/55 hover:text-brand-gold text-sm transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -48,10 +56,10 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-sm font-semibold tracking-wider text-ocean-300 uppercase mb-4">
+            <h4 className="text-xs font-semibold tracking-[0.2em] text-brand-clay-light uppercase mb-5">
               {t('contact.contact_info_title')}
             </h4>
-            <ul className="space-y-2 text-sm text-ocean-300">
+            <ul className="space-y-2.5 text-sm text-white/55">
               <li>📞 {t('contact.phone')}</li>
               <li>✉️ {t('contact.email')}</li>
               <li>📍 {t('contact.address')}</li>
@@ -59,7 +67,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-ocean-800 text-center text-ocean-500 text-xs">
+        <div className="mt-12 pt-8 border-t border-white/10 text-center text-white/30 text-xs tracking-wider">
           © {currentYear} Wavepoint Apartments. {t('footer.rights')}
         </div>
       </div>
