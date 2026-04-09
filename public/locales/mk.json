@@ -122,7 +122,15 @@
     "contact_info_title": "Контакт информации",
     "phone": "+30 694 814 5850",
     "email": "contact@wavepoint-apartments.com",
-    "address": "Wavepoint Apartments, Аспровалта, Грција"
+    "address": "Wavepoint Apartments, Аспровалта, Грција",
+    "form_phone": "Телефонски Број",
+    "form_phone_placeholder": "пр. +30 694 000 0000",
+    "form_name_placeholder": "Вашето полно ime",
+    "form_email_placeholder": "your@email.com",
+    "form_message_placeholder": "Кажете ни за вашиот престој…",
+    "form_sending": "Испраќање…",
+    "form_error": "Нешто тргна наопаку. Обидете се повторно или контактирајте нè на",
+    "form_error_whatsapp": "WhatsApp"
   },
   "gallery": {
     "title": "Галерија",
