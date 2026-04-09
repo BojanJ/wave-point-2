@@ -14,7 +14,7 @@ function AnimatedSection({ children, className }) {
       ref={ref}
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-      transition={{ duration: 0.7, ease: 'easeOut' }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
       className={className}
     >
       {children}
@@ -49,22 +49,22 @@ export default function HomePage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
+            transition={{ duration: 1.1, delay: 0.3 }}
           >
-            <p className="text-azure-300 text-sm font-medium tracking-[0.3em] uppercase mb-4">
+            <p className="text-brand-stone text-xs font-medium tracking-[0.4em] uppercase mb-6">
               Greece · Mediterranean · Luxury
             </p>
             <h1 className="heading-xl text-white mb-6 drop-shadow-lg">
               {t('home.hero_title')}
             </h1>
-            <p className="text-white/80 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-white/75 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed font-light">
               {t('home.hero_subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/apartments" className="btn-primary text-base px-8 py-4">
+              <Link href="/apartments" className="btn-primary text-sm px-10 py-4">
                 {t('home.hero_cta')}
               </Link>
-              <Link href="/contact" className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-medium px-8 py-4 rounded-full transition-all duration-200 border border-white/30">
+              <Link href="/contact" className="bg-white/15 backdrop-blur-sm hover:bg-white/25 text-white font-medium px-10 py-4 rounded-full transition-all duration-300 border border-white/25 text-sm tracking-wide">
                 {t('home.book_now')}
               </Link>
             </div>
@@ -73,29 +73,30 @@ export default function HomePage() {
       </ParallaxImage>
 
       {/* Concept Section */}
-      <section className="section-padding bg-gradient-to-b from-ocean-50 to-white">
+      <section className="section-padding bg-brand-sand">
         <div className="container-max">
           <AnimatedSection className="text-center mb-16">
-            <h2 className="heading-lg text-ocean-800 mb-4">{t('home.concept_title')}</h2>
-            <div className="w-16 h-0.5 bg-azure-400 mx-auto" />
+            <p className="text-brand-clay text-xs tracking-[0.3em] uppercase mb-4">Our Collection</p>
+            <h2 className="heading-lg text-brand-charcoal mb-5">{t('home.concept_title')}</h2>
+            <div className="w-12 h-px bg-brand-gold mx-auto" />
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {/* Classic */}
             <AnimatedSection>
-              <div className="group relative overflow-hidden rounded-2xl shadow-xl h-96">
+              <div className="group relative overflow-hidden rounded-3xl h-96">
                 <img
                   src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80"
                   alt="Wavepoint Classic"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/80 via-brand-charcoal/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <div className="inline-block bg-white/20 backdrop-blur-sm text-white text-xs font-medium tracking-widest px-3 py-1 rounded-full mb-3">
+                  <div className="inline-block border border-white/30 text-white/80 text-xs font-medium tracking-[0.2em] px-3 py-1 mb-4">
                     CLASSIC
                   </div>
                   <h3 className="heading-md text-white mb-2">{t('home.concept_original_title')}</h3>
-                  <p className="text-white/80 text-sm leading-relaxed line-clamp-3">
+                  <p className="text-white/70 text-sm leading-relaxed line-clamp-3">
                     {t('home.concept_original_desc')}
                   </p>
                 </div>
@@ -104,19 +105,19 @@ export default function HomePage() {
 
             {/* 2.0 */}
             <AnimatedSection>
-              <div className="group relative overflow-hidden rounded-2xl shadow-xl h-96">
+              <div className="group relative overflow-hidden rounded-3xl h-96">
                 <img
                   src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80"
                   alt="Wavepoint 2.0"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/80 via-brand-charcoal/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                  <div className="inline-block bg-azure-500/80 backdrop-blur-sm text-white text-xs font-medium tracking-widest px-3 py-1 rounded-full mb-3">
+                  <div className="inline-block bg-brand-gold/80 text-white text-xs font-medium tracking-[0.2em] px-3 py-1 mb-4">
                     NEW · 2.0
                   </div>
                   <h3 className="heading-md text-white mb-2">{t('home.concept_new_title')}</h3>
-                  <p className="text-white/80 text-sm leading-relaxed line-clamp-3">
+                  <p className="text-white/70 text-sm leading-relaxed line-clamp-3">
                     {t('home.concept_new_desc')}
                   </p>
                 </div>
@@ -127,15 +128,16 @@ export default function HomePage() {
       </section>
 
       {/* Amenities Section */}
-      <section className="section-padding bg-ocean-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-azure-400 rounded-full filter blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-ocean-400 rounded-full filter blur-3xl" />
+      <section className="section-padding bg-brand-charcoal text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-gold rounded-full filter blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-clay rounded-full filter blur-3xl" />
         </div>
         <div className="container-max relative z-10">
           <AnimatedSection className="text-center mb-16">
-            <h2 className="heading-lg text-white mb-4">{t('home.amenities_title')}</h2>
-            <div className="w-16 h-0.5 bg-azure-400 mx-auto" />
+            <p className="text-brand-gold text-xs tracking-[0.3em] uppercase mb-4">Included</p>
+            <h2 className="heading-lg text-white mb-5">{t('home.amenities_title')}</h2>
+            <div className="w-12 h-px bg-brand-gold mx-auto" />
           </AnimatedSection>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
@@ -145,11 +147,11 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-card bg-white/5 border-white/10 p-6 text-center hover:bg-white/10 transition-all duration-300 hover:-translate-y-1"
+                transition={{ duration: 0.6, delay: index * 0.08 }}
+                className="border border-white/10 p-6 text-center hover:border-brand-gold/40 transition-all duration-400 hover:-translate-y-1"
               >
-                <div className="text-4xl mb-3">{amenity.icon}</div>
-                <p className="text-white/80 text-sm font-medium">{amenity.label}</p>
+                <div className="text-3xl mb-3">{amenity.icon}</div>
+                <p className="text-white/65 text-xs font-medium tracking-wide uppercase">{amenity.label}</p>
               </motion.div>
             ))}
           </div>
@@ -157,11 +159,12 @@ export default function HomePage() {
       </section>
 
       {/* Featured Apartments */}
-      <section className="section-padding bg-sand-50">
+      <section className="section-padding bg-brand-sand-dark">
         <div className="container-max">
           <AnimatedSection className="text-center mb-16">
-            <h2 className="heading-lg text-ocean-800 mb-4">{t('home.featured_title')}</h2>
-            <div className="w-16 h-0.5 bg-azure-400 mx-auto" />
+            <p className="text-brand-clay text-xs tracking-[0.3em] uppercase mb-4">Selection</p>
+            <h2 className="heading-lg text-brand-charcoal mb-5">{t('home.featured_title')}</h2>
+            <div className="w-12 h-px bg-brand-gold mx-auto" />
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -171,41 +174,37 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+                transition={{ duration: 0.7, delay: index * 0.15 }}
+                className="group bg-brand-sand rounded-3xl overflow-hidden border border-brand-stone hover:border-brand-clay transition-all duration-400 hover:-translate-y-1"
               >
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-60 overflow-hidden">
                   <img
                     src={`https://images.unsplash.com/photo-${index === 0 ? '1566073771259-6a8506099945' : index === 1 ? '1615880484746-a134be9a6ecf' : '1582719508461-905c673771fd'}?w=600&q=80`}
                     alt={property.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-600"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className={`text-xs font-medium px-3 py-1 rounded-full ${
-                      property.badge === 'Classic' 
-                        ? 'bg-sand-100 text-sand-700' 
-                        : 'bg-azure-500 text-white'
-                    }`}>
+                    <span className="text-xs font-medium tracking-[0.15em] bg-brand-sand/90 text-brand-charcoal px-3 py-1">
                       {property.badge}
                     </span>
                   </div>
                   <div className="absolute top-4 right-4">
-                    <span className="bg-white/90 backdrop-blur-sm text-ocean-800 text-xs font-bold px-3 py-1 rounded-full">
+                    <span className="bg-brand-charcoal/80 backdrop-blur-sm text-white text-xs font-medium px-3 py-1">
                       {property.price_from}
                     </span>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="font-serif text-xl font-bold text-ocean-800 mb-1">{property.name}</h3>
-                  <p className="text-ocean-500 text-sm mb-3">{property.tagline}</p>
-                  <div className="flex items-center gap-4 text-xs text-ocean-400 mb-4">
+                  <h3 className="font-serif text-xl font-bold text-brand-charcoal mb-1">{property.name}</h3>
+                  <p className="text-brand-clay text-sm mb-4">{property.tagline}</p>
+                  <div className="flex items-center gap-4 text-xs text-brand-clay-dark mb-5 border-t border-brand-stone pt-4">
                     <span>👥 {property.capacity} {t('apartments.guests')}</span>
                     <span>🛏 {property.bedrooms} {t('apartments.bedrooms')}</span>
                     <span>🌊 {property.view}</span>
                   </div>
                   <Link
                     href={`/apartments/${property.id}`}
-                    className="block w-full text-center btn-primary text-sm py-2.5"
+                    className="block w-full text-center btn-primary text-xs py-3"
                   >
                     {t('apartments.view_details')}
                   </Link>
@@ -214,8 +213,8 @@ export default function HomePage() {
             ))}
           </div>
 
-          <AnimatedSection className="text-center mt-12">
-            <Link href="/apartments" className="btn-outline text-base px-8 py-4">
+          <AnimatedSection className="text-center mt-14">
+            <Link href="/apartments" className="btn-outline text-sm px-10 py-4">
               {t('home.view_all')}
             </Link>
           </AnimatedSection>
@@ -230,13 +229,14 @@ export default function HomePage() {
       >
         <div className="text-center text-white px-4">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.8 }}
           >
-            <h2 className="heading-lg text-white mb-6">Your Mediterranean Story Starts Here</h2>
-            <Link href="/contact" className="bg-white text-ocean-800 hover:bg-ocean-50 font-semibold px-10 py-4 rounded-full transition-all duration-200 shadow-xl">
+            <p className="text-brand-stone text-xs tracking-[0.4em] uppercase mb-4">Reserve Your Stay</p>
+            <h2 className="heading-lg text-white mb-8">Your Mediterranean Story Starts Here</h2>
+            <Link href="/contact" className="bg-brand-gold hover:bg-brand-gold-dark text-white font-medium px-10 py-4 rounded-full transition-all duration-300 text-sm tracking-wide shadow-lg hover:shadow-xl">
               {t('home.book_now')}
             </Link>
           </motion.div>

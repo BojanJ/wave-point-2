@@ -8,16 +8,16 @@ function FAQItem({ question, answer }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border border-ocean-100 rounded-2xl overflow-hidden">
+    <div className="border-b border-brand-stone">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-5 text-left bg-white hover:bg-ocean-50 transition-colors"
+        className="w-full flex items-center justify-between py-5 text-left hover:text-brand-gold transition-colors"
       >
-        <span className="font-medium text-ocean-800 pr-4">{question}</span>
+        <span className="font-medium text-brand-charcoal pr-4 text-sm">{question}</span>
         <motion.span
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.2 }}
-          className="text-azure-500 text-xl flex-shrink-0"
+          className="text-brand-gold text-lg flex-shrink-0"
         >
           ↓
         </motion.span>
@@ -30,7 +30,7 @@ function FAQItem({ question, answer }) {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="px-5 pb-5 text-ocean-600 text-sm leading-relaxed border-t border-ocean-50 pt-4">
+            <div className="pb-5 text-brand-charcoal-light text-sm leading-relaxed">
               {answer}
             </div>
           </motion.div>
@@ -81,14 +81,14 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-ocean-50 to-white">
+    <div className="min-h-screen bg-brand-sand">
       {/* Header */}
-      <div className="relative bg-ocean-800 text-white py-32 px-4 text-center overflow-hidden">
+      <div className="relative bg-brand-charcoal text-white py-32 px-4 text-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80"
             alt="bg"
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover opacity-15"
           />
         </div>
         <motion.div
@@ -97,13 +97,14 @@ export default function ContactPage() {
           transition={{ duration: 0.8 }}
           className="relative z-10"
         >
+          <p className="text-brand-gold text-xs font-medium tracking-[0.35em] uppercase mb-4">Enquire</p>
           <h1 className="heading-xl text-white mb-4">{t('contact.title')}</h1>
-          <p className="text-white/70 text-lg max-w-xl mx-auto">{t('contact.subtitle')}</p>
+          <p className="text-white/55 text-lg max-w-xl mx-auto font-light">{t('contact.subtitle')}</p>
         </motion.div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -111,22 +112,22 @@ export default function ContactPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <div className="glass-card p-8 border-ocean-100">
+            <div className="bg-brand-sand border border-brand-stone p-8">
               {submitted ? (
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-12"
+                  className="text-center py-16"
                 >
-                  <div className="text-6xl mb-4">✅</div>
-                  <h3 className="heading-md text-ocean-800 mb-2">Thank you!</h3>
-                  <p className="text-ocean-500">{t('contact.form_success')}</p>
+                  <div className="text-5xl mb-6">✦</div>
+                  <h3 className="heading-md text-brand-charcoal mb-3">Thank you</h3>
+                  <p className="text-brand-clay">{t('contact.form_success')}</p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <form onSubmit={handleSubmit} className="space-y-7">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-7">
                     <div>
-                      <label className="block text-xs font-medium text-ocean-500 mb-1">
+                      <label className="block text-xs font-medium tracking-[0.12em] text-brand-clay uppercase mb-2">
                         {t('contact.form_name')} *
                       </label>
                       <input
@@ -135,12 +136,12 @@ export default function ContactPage() {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full border border-ocean-200 rounded-xl px-4 py-3 text-sm text-ocean-700 focus:outline-none focus:ring-2 focus:ring-azure-300"
-                        placeholder="John Doe"
+                        className="input-luxury"
+                        placeholder="Your name"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-ocean-500 mb-1">
+                      <label className="block text-xs font-medium tracking-[0.12em] text-brand-clay uppercase mb-2">
                         {t('contact.form_email')} *
                       </label>
                       <input
@@ -149,21 +150,21 @@ export default function ContactPage() {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full border border-ocean-200 rounded-xl px-4 py-3 text-sm text-ocean-700 focus:outline-none focus:ring-2 focus:ring-azure-300"
-                        placeholder="john@example.com"
+                        className="input-luxury"
+                        placeholder="your@email.com"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-ocean-500 mb-1">
+                    <label className="block text-xs font-medium tracking-[0.12em] text-brand-clay uppercase mb-2">
                       {t('contact.form_room')}
                     </label>
                     <select
                       name="room"
                       value={formData.room}
                       onChange={handleChange}
-                      className="w-full border border-ocean-200 rounded-xl px-4 py-3 text-sm text-ocean-700 focus:outline-none focus:ring-2 focus:ring-azure-300"
+                      className="input-luxury bg-transparent"
                     >
                       <option value="">{t('contact.form_room_default')}</option>
                       {properties.map((p) => (
@@ -172,9 +173,9 @@ export default function ContactPage() {
                     </select>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-7">
                     <div>
-                      <label className="block text-xs font-medium text-ocean-500 mb-1">
+                      <label className="block text-xs font-medium tracking-[0.12em] text-brand-clay uppercase mb-2">
                         {t('contact.form_checkin')}
                       </label>
                       <input
@@ -182,11 +183,11 @@ export default function ContactPage() {
                         name="checkin"
                         value={formData.checkin}
                         onChange={handleChange}
-                        className="w-full border border-ocean-200 rounded-xl px-4 py-3 text-sm text-ocean-700 focus:outline-none focus:ring-2 focus:ring-azure-300"
+                        className="input-luxury"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-ocean-500 mb-1">
+                      <label className="block text-xs font-medium tracking-[0.12em] text-brand-clay uppercase mb-2">
                         {t('contact.form_checkout')}
                       </label>
                       <input
@@ -194,18 +195,18 @@ export default function ContactPage() {
                         name="checkout"
                         value={formData.checkout}
                         onChange={handleChange}
-                        className="w-full border border-ocean-200 rounded-xl px-4 py-3 text-sm text-ocean-700 focus:outline-none focus:ring-2 focus:ring-azure-300"
+                        className="input-luxury"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-ocean-500 mb-1">
+                      <label className="block text-xs font-medium tracking-[0.12em] text-brand-clay uppercase mb-2">
                         {t('contact.form_guests')}
                       </label>
                       <select
                         name="guests"
                         value={formData.guests}
                         onChange={handleChange}
-                        className="w-full border border-ocean-200 rounded-xl px-4 py-3 text-sm text-ocean-700 focus:outline-none focus:ring-2 focus:ring-azure-300"
+                        className="input-luxury bg-transparent"
                       >
                         {[1,2,3,4,5,6].map((n) => (
                           <option key={n} value={n}>{n}</option>
@@ -215,7 +216,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-ocean-500 mb-1">
+                    <label className="block text-xs font-medium tracking-[0.12em] text-brand-clay uppercase mb-2">
                       {t('contact.form_message')}
                     </label>
                     <textarea
@@ -223,12 +224,12 @@ export default function ContactPage() {
                       rows={4}
                       value={formData.message}
                       onChange={handleChange}
-                      className="w-full border border-ocean-200 rounded-xl px-4 py-3 text-sm text-ocean-700 focus:outline-none focus:ring-2 focus:ring-azure-300 resize-none"
-                      placeholder="Tell us about your trip..."
+                      className="input-luxury resize-none"
+                      placeholder="Tell us about your stay..."
                     />
                   </div>
 
-                  <button type="submit" className="w-full btn-primary py-4 text-base">
+                  <button type="submit" className="w-full btn-primary py-4 text-sm tracking-widest">
                     {t('contact.form_submit')}
                   </button>
                 </form>
@@ -242,9 +243,9 @@ export default function ContactPage() {
                 { icon: '✉️', text: t('contact.email') },
                 { icon: '📍', text: t('contact.address') },
               ].map((item) => (
-                <div key={item.text} className="text-center p-4 bg-white rounded-2xl shadow-sm border border-ocean-50">
+                <div key={item.text} className="text-center p-4 bg-brand-stone/40 border border-brand-stone">
                   <div className="text-2xl mb-2">{item.icon}</div>
-                  <div className="text-xs text-ocean-500">{item.text}</div>
+                  <div className="text-xs text-brand-clay-dark">{item.text}</div>
                 </div>
               ))}
             </div>
@@ -257,8 +258,9 @@ export default function ContactPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="heading-md text-ocean-800 mb-8">{t('contact.faq_title')}</h2>
-            <div className="space-y-3">
+            <p className="text-brand-clay text-xs tracking-[0.3em] uppercase mb-3">Questions</p>
+            <h2 className="heading-md text-brand-charcoal mb-8">{t('contact.faq_title')}</h2>
+            <div className="border-t border-brand-stone">
               {faqs.map((faq, index) => (
                 <FAQItem key={index} question={faq.q} answer={faq.a} />
               ))}

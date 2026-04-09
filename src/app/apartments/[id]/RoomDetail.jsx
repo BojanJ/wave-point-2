@@ -36,12 +36,12 @@ export default function RoomDetail({ property }) {
   const roomGalleryImages = galleryImages.filter((img) => img.category === property.id);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-brand-sand">
       {/* Back Link */}
       <div className="fixed top-24 left-4 z-30 md:left-8">
         <Link
           href="/apartments"
-          className="inline-flex items-center gap-2 bg-white/90 backdrop-blur-sm text-ocean-700 hover:text-azure-500 text-sm font-medium px-4 py-2 rounded-full shadow-md transition-colors"
+          className="inline-flex items-center gap-2 bg-brand-sand/90 backdrop-blur-sm text-brand-charcoal hover:text-brand-gold text-xs font-medium tracking-wide px-4 py-2 border border-brand-stone transition-colors"
         >
           ← {t('apartment_detail.back')}
         </Link>
@@ -58,20 +58,16 @@ export default function RoomDetail({ property }) {
           alt={property.name}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/60" />
-        
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-charcoal/15 via-transparent to-brand-charcoal/70" />
+
         {/* Property Info Overlay */}
         <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
           <div className="max-w-7xl mx-auto">
-            <span className={`inline-block text-xs font-medium px-3 py-1 rounded-full mb-4 ${
-              property.badge === 'Classic'
-                ? 'bg-sand-100 text-sand-800'
-                : 'bg-azure-500 text-white'
-            }`}>
+            <span className="inline-block text-xs font-medium tracking-[0.2em] border border-white/30 text-white/80 px-3 py-1 mb-4">
               {property.badge}
             </span>
             <h1 className="heading-xl text-white mb-2">{property.name}</h1>
-            <p className="text-white/80 text-xl">{property.tagline}</p>
+            <p className="text-white/70 text-xl font-light">{property.tagline}</p>
           </div>
         </div>
 
@@ -81,8 +77,8 @@ export default function RoomDetail({ property }) {
             <button
               key={i}
               onClick={() => setActiveImage(i)}
-              className={`w-16 h-12 rounded-lg overflow-hidden border-2 transition-all ${
-                i === activeImage ? 'border-white scale-110' : 'border-white/40 opacity-60'
+              className={`w-16 h-12 overflow-hidden border transition-all ${
+                i === activeImage ? 'border-brand-gold scale-110' : 'border-white/30 opacity-50'
               }`}
             >
               <img src={img} alt="" className="w-full h-full object-cover" />
@@ -97,7 +93,7 @@ export default function RoomDetail({ property }) {
           {/* Main Content */}
           <div className="lg:col-span-2">
             {/* Stats */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10 p-6 bg-ocean-50 rounded-2xl">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10 p-6 bg-brand-stone/40 border border-brand-stone">
               {[
                 { label: t('apartment_detail.capacity'), value: `${property.capacity} guests` },
                 { label: t('apartments.bedrooms'), value: `${property.bedrooms} bed${property.bedrooms > 1 ? 's' : ''}` },
@@ -105,25 +101,25 @@ export default function RoomDetail({ property }) {
                 { label: 'Size', value: property.size },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <div className="text-xl font-bold text-ocean-800">{stat.value}</div>
-                  <div className="text-xs text-ocean-400 mt-1">{stat.label}</div>
+                  <div className="font-serif text-xl font-bold text-brand-charcoal">{stat.value}</div>
+                  <div className="text-xs text-brand-clay mt-1 tracking-wide">{stat.label}</div>
                 </div>
               ))}
             </div>
 
             {/* Description */}
             <div className="mb-10">
-              <h2 className="heading-md text-ocean-800 mb-4">{t('apartment_detail.description')}</h2>
-              <p className="text-ocean-600 leading-relaxed">{property.description}</p>
+              <h2 className="heading-md text-brand-charcoal mb-4">{t('apartment_detail.description')}</h2>
+              <p className="text-brand-charcoal-light leading-relaxed">{property.description}</p>
             </div>
 
             {/* Features */}
             <div className="mb-10">
-              <h2 className="heading-md text-ocean-800 mb-4">{t('apartment_detail.features')}</h2>
+              <h2 className="heading-md text-brand-charcoal mb-5">{t('apartment_detail.features')}</h2>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {property.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-3 text-ocean-600">
-                    <span className="w-5 h-5 bg-azure-100 text-azure-600 rounded-full flex items-center justify-center text-xs">✓</span>
+                  <li key={feature} className="flex items-center gap-3 text-brand-charcoal-light">
+                    <span className="w-5 h-5 bg-brand-gold/15 text-brand-gold rounded-full flex items-center justify-center text-xs flex-shrink-0">✓</span>
                     {feature}
                   </li>
                 ))}
@@ -132,12 +128,12 @@ export default function RoomDetail({ property }) {
 
             {/* Amenities */}
             <div>
-              <h2 className="heading-md text-ocean-800 mb-4">{t('apartment_detail.amenities')}</h2>
+              <h2 className="heading-md text-brand-charcoal mb-5">{t('apartment_detail.amenities')}</h2>
               <div className="flex flex-wrap gap-2">
                 {property.amenities.map((amenity) => (
                   <span
                     key={amenity}
-                    className="bg-ocean-50 text-ocean-700 text-sm px-4 py-2 rounded-full border border-ocean-100"
+                    className="bg-brand-stone text-brand-charcoal text-xs px-4 py-2 border border-brand-stone"
                   >
                     {amenity}
                   </span>
@@ -148,7 +144,7 @@ export default function RoomDetail({ property }) {
             {/* Room Gallery */}
             {roomGalleryImages.length > 0 && (
               <div className="mt-10">
-                <h2 className="heading-md text-ocean-800 mb-4">{t('apartment_detail.gallery')}</h2>
+                <h2 className="heading-md text-brand-charcoal mb-5">{t('apartment_detail.gallery')}</h2>
                 <GalleryGrid images={roomGalleryImages} />
               </div>
             )}
@@ -157,36 +153,37 @@ export default function RoomDetail({ property }) {
           {/* Booking Sidebar */}
           <div className="lg:col-span-1">
             <div className="sticky top-28">
-              <div className="glass-card p-6 border-ocean-100">
-                <h3 className="font-serif text-xl font-bold text-ocean-800 mb-2">
+              <div className="bg-brand-sand border border-brand-stone p-7">
+                <h3 className="font-serif text-xl font-bold text-brand-charcoal mb-2">
                   {t('apartment_detail.book_title')}
                 </h3>
-                <p className="text-azure-500 text-2xl font-bold mb-6">{property.price_from}</p>
+                <p className="text-brand-gold font-serif text-2xl font-bold mb-2">{property.price_from}</p>
+                <p className="text-brand-clay text-xs tracking-wide mb-7">Limited Summer Dates Available</p>
 
-                <div className="space-y-4 mb-6">
+                <div className="space-y-6 mb-7">
                   <div>
-                    <label className="block text-xs font-medium text-ocean-500 mb-1">
+                    <label className="block text-xs font-medium tracking-[0.12em] text-brand-clay uppercase mb-2">
                       {t('apartment_detail.check_in')}
                     </label>
                     <input
                       type="date"
-                      className="w-full border border-ocean-200 rounded-xl px-4 py-3 text-sm text-ocean-700 focus:outline-none focus:ring-2 focus:ring-azure-300"
+                      className="input-luxury"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-ocean-500 mb-1">
+                    <label className="block text-xs font-medium tracking-[0.12em] text-brand-clay uppercase mb-2">
                       {t('apartment_detail.check_out')}
                     </label>
                     <input
                       type="date"
-                      className="w-full border border-ocean-200 rounded-xl px-4 py-3 text-sm text-ocean-700 focus:outline-none focus:ring-2 focus:ring-azure-300"
+                      className="input-luxury"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium text-ocean-500 mb-1">
+                    <label className="block text-xs font-medium tracking-[0.12em] text-brand-clay uppercase mb-2">
                       {t('apartment_detail.guests_label')}
                     </label>
-                    <select className="w-full border border-ocean-200 rounded-xl px-4 py-3 text-sm text-ocean-700 focus:outline-none focus:ring-2 focus:ring-azure-300">
+                    <select className="input-luxury bg-transparent">
                       {Array.from({ length: property.capacity }, (_, i) => i + 1).map((n) => (
                         <option key={n} value={n}>{n} {n === 1 ? 'guest' : 'guests'}</option>
                       ))}
@@ -196,23 +193,23 @@ export default function RoomDetail({ property }) {
 
                 <Link
                   href={`/contact?room=${property.id}`}
-                  className="block w-full text-center btn-primary py-4 text-base"
+                  className="block w-full text-center btn-primary py-4 text-sm"
                 >
                   {t('apartment_detail.inquire')}
                 </Link>
 
-                <div className="mt-4 text-center">
-                  <p className="text-ocean-400 text-xs">No booking fees · Instant confirmation</p>
+                <div className="mt-5 text-center">
+                  <p className="text-brand-clay text-xs tracking-wide">No booking fees · Personal service</p>
                 </div>
               </div>
 
               {/* View Info */}
-              <div className="mt-4 p-4 bg-azure-50 rounded-2xl">
+              <div className="mt-4 p-5 bg-brand-stone/40 border border-brand-stone">
                 <div className="flex items-center gap-3">
                   <span className="text-2xl">🌊</span>
                   <div>
-                    <div className="text-sm font-medium text-ocean-800">{property.view}</div>
-                    <div className="text-xs text-ocean-400">{property.floor}</div>
+                    <div className="text-sm font-medium text-brand-charcoal">{property.view}</div>
+                    <div className="text-xs text-brand-clay mt-0.5">{property.floor}</div>
                   </div>
                 </div>
               </div>

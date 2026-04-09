@@ -28,21 +28,21 @@ function ParallaxHeader({ t }) {
           className="w-full h-full object-cover"
         />
       </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-charcoal/40 via-brand-charcoal/30 to-brand-charcoal/60" />
       <div className="relative z-10 text-center text-white px-4">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <p className="text-azure-300 text-xs font-medium tracking-[0.3em] uppercase mb-3">
+          <p className="text-brand-stone text-xs font-medium tracking-[0.4em] uppercase mb-3">
             Wavepoint Apartments
           </p>
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 drop-shadow-lg">
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-lg">
             {t('gallery.title')}
           </h1>
-          <div className="w-12 h-0.5 bg-azure-400 mx-auto mb-4" />
-          <p className="text-white/75 text-base md:text-lg max-w-xl mx-auto">
+          <div className="w-10 h-px bg-brand-gold mx-auto mb-4" />
+          <p className="text-white/65 text-base md:text-lg max-w-xl mx-auto font-light">
             {t('gallery.subtitle')}
           </p>
         </motion.div>
@@ -61,21 +61,21 @@ export default function GalleryPage() {
   }, [activeFilter]);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-brand-sand">
       <ParallaxHeader t={t} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Filter bar */}
-        <div className="flex flex-wrap gap-2 justify-center mb-10">
+        <div className="flex flex-wrap gap-2 justify-center mb-12">
           {FILTERS.map((filter) => (
             <motion.button
               key={filter.id}
               onClick={() => setActiveFilter(filter.id)}
               whileTap={{ scale: 0.96 }}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 border ${
+              className={`px-5 py-2 text-xs font-medium tracking-[0.12em] uppercase transition-all duration-200 border ${
                 activeFilter === filter.id
-                  ? 'bg-azure-500 text-white border-azure-500 shadow-md'
-                  : 'bg-white text-ocean-700 border-ocean-200 hover:border-azure-400 hover:text-azure-500'
+                  ? 'bg-brand-gold text-white border-brand-gold'
+                  : 'bg-transparent text-brand-charcoal border-brand-stone hover:border-brand-clay hover:text-brand-clay-dark'
               }`}
             >
               {t(filter.labelKey)}
@@ -90,7 +90,7 @@ export default function GalleryPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.25 }}
           >
             <GalleryGrid images={filteredImages} />
           </motion.div>
