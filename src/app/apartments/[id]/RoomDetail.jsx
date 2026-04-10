@@ -72,7 +72,7 @@ export default function RoomDetail({ property }) {
         </div>
 
         {/* Thumbnail Navigation */}
-        <div className="absolute bottom-8 right-8 md:right-12 flex gap-2">
+        <div className="absolute top-40 left-4 md:top-auto md:bottom-8 md:right-12 flex gap-2">
           {images.map((img, i) => (
             <button
               key={i}
