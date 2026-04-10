@@ -32,8 +32,19 @@ const imageMap = {
 export default function RoomDetail({ property }) {
   const { t } = useLanguage();
   const [activeImage, setActiveImage] = useState(0);
+  const [checkin, setCheckin] = useState('');
+  const [checkout, setCheckout] = useState('');
+  const [guests, setGuests] = useState('2');
   const images = imageMap[property.id] || imageMap['classic'];
   const roomGalleryImages = galleryImages.filter((img) => img.category === property.id);
+
+  const inquireHref = (() => {
+    const params = new URLSearchParams({ room: property.id });
+    if (checkin) params.set('checkin', checkin);
+    if (checkout) params.set('checkout', checkout);
+    if (guests) params.set('guests', guests);
+    return `/contact?${params.toString()}`;
+  })();
 
   return (
     <div className="min-h-screen bg-brand-sand">
@@ -168,6 +179,8 @@ export default function RoomDetail({ property }) {
                     <input
                       type="date"
                       className="input-luxury"
+                      value={checkin}
+                      onChange={(e) => setCheckin(e.target.value)}
                     />
                   </div>
                   <div>
@@ -177,13 +190,19 @@ export default function RoomDetail({ property }) {
                     <input
                       type="date"
                       className="input-luxury"
+                      value={checkout}
+                      onChange={(e) => setCheckout(e.target.value)}
                     />
                   </div>
                   <div>
                     <label className="block text-xs font-medium tracking-[0.12em] text-brand-clay uppercase mb-2">
                       {t('apartment_detail.guests_label')}
                     </label>
-                    <select className="input-luxury bg-transparent">
+                    <select
+                      className="input-luxury bg-transparent"
+                      value={guests}
+                      onChange={(e) => setGuests(e.target.value)}
+                    >
                       {Array.from({ length: property.capacity }, (_, i) => i + 1).map((n) => (
                         <option key={n} value={n}>{n} {n === 1 ? 'guest' : 'guests'}</option>
                       ))}
@@ -192,7 +211,7 @@ export default function RoomDetail({ property }) {
                 </div>
 
                 <Link
-                  href={`/contact?room=${property.id}`}
+                  href={inquireHref}
                   className="block w-full text-center btn-primary py-4 text-sm"
                 >
                   {t('apartment_detail.inquire')}
