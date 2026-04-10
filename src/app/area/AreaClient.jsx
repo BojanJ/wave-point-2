@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import { Umbrella, Waves, Utensils, Leaf, Sailboat, Footprints } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import ParallaxImage from '@/components/ParallaxImage';
 
@@ -12,7 +13,7 @@ function Card({ icon, title, desc, delay }) {
       transition={{ duration: 0.6, delay }}
       className="bg-brand-sand border border-brand-stone p-7 hover:border-brand-clay transition-all duration-300"
     >
-      <div className="text-3xl mb-4">{icon}</div>
+      <div className="mb-4">{icon}</div>
       <h3 className="font-serif text-lg font-bold text-brand-charcoal mb-2">{title}</h3>
       <p className="text-brand-charcoal-light text-sm leading-relaxed">{desc}</p>
     </motion.div>
@@ -69,8 +70,8 @@ export default function AreaPage() {
               <h2 className="heading-md text-brand-charcoal">{t('area.beaches_title')}</h2>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card icon="🏖️" title={t('area.beach_1')} desc={t('area.beach_1_desc')} delay={0} />
-              <Card icon="🌊" title={t('area.beach_2')} desc={t('area.beach_2_desc')} delay={0.1} />
+              <Card icon={<Umbrella size={28} className="text-brand-gold" />} title={t('area.beach_1')} desc={t('area.beach_1_desc')} delay={0} />
+              <Card icon={<Waves size={28} className="text-brand-gold" />} title={t('area.beach_2')} desc={t('area.beach_2_desc')} delay={0.1} />
             </div>
           </div>
 
@@ -86,8 +87,8 @@ export default function AreaPage() {
               <h2 className="heading-md text-brand-charcoal">{t('area.restaurants_title')}</h2>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card icon="🍽️" title={t('area.restaurant_1')} desc={t('area.restaurant_1_desc')} delay={0} />
-              <Card icon="🫒" title={t('area.restaurant_2')} desc={t('area.restaurant_2_desc')} delay={0.1} />
+              <Card icon={<Utensils size={28} className="text-brand-gold" />} title={t('area.restaurant_1')} desc={t('area.restaurant_1_desc')} delay={0} />
+              <Card icon={<Leaf size={28} className="text-brand-gold" />} title={t('area.restaurant_2')} desc={t('area.restaurant_2_desc')} delay={0.1} />
             </div>
           </div>
 
@@ -103,8 +104,8 @@ export default function AreaPage() {
               <h2 className="heading-md text-brand-charcoal">{t('area.activities_title')}</h2>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Card icon="⛵" title={t('area.activity_1')} desc={t('area.activity_1_desc')} delay={0} />
-              <Card icon="🥾" title={t('area.activity_2')} desc={t('area.activity_2_desc')} delay={0.1} />
+              <Card icon={<Sailboat size={28} className="text-brand-gold" />} title={t('area.activity_1')} desc={t('area.activity_1_desc')} delay={0} />
+              <Card icon={<Footprints size={28} className="text-brand-gold" />} title={t('area.activity_2')} desc={t('area.activity_2_desc')} delay={0.1} />
             </div>
           </div>
         </div>

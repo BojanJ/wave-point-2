@@ -2,6 +2,7 @@
 import { useRef } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
+import { Wifi, Waves, CookingPot, Snowflake, Car, Umbrella, Sunrise, Users, BedDouble } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import ParallaxImage from '@/components/ParallaxImage';
 import WaveLogo from '@/components/WaveLogo';
@@ -28,14 +29,14 @@ export default function HomePage() {
   const featuredProperties = properties.slice(0, 3);
 
   const amenities = [
-    { key: 'wifi', icon: '📶', label: t('home.amenity_wifi') },
-    { key: 'pool', icon: '🏊', label: t('home.amenity_pool') },
-    { key: 'view', icon: '🌊', label: t('home.amenity_view') },
-    { key: 'kitchen', icon: '🍳', label: t('home.amenity_kitchen') },
-    { key: 'ac', icon: '❄️', label: t('home.amenity_ac') },
-    { key: 'parking', icon: '🚗', label: t('home.amenity_parking') },
-    { key: 'beach', icon: '🏖️', label: t('home.amenity_beach') },
-    { key: 'terrace', icon: '🌅', label: t('home.amenity_terrace') },
+    { key: 'wifi', Icon: Wifi, label: t('home.amenity_wifi') },
+    { key: 'pool', Icon: Waves, label: t('home.amenity_pool') },
+    { key: 'view', Icon: Waves, label: t('home.amenity_view') },
+    { key: 'kitchen', Icon: CookingPot, label: t('home.amenity_kitchen') },
+    { key: 'ac', Icon: Snowflake, label: t('home.amenity_ac') },
+    { key: 'parking', Icon: Car, label: t('home.amenity_parking') },
+    { key: 'beach', Icon: Umbrella, label: t('home.amenity_beach') },
+    { key: 'terrace', Icon: Sunrise, label: t('home.amenity_terrace') },
   ];
 
   return (
@@ -152,7 +153,7 @@ export default function HomePage() {
                 transition={{ duration: 0.6, delay: index * 0.08 }}
                 className="border border-white/10 p-6 text-center hover:border-brand-gold/40 transition-all duration-400 hover:-translate-y-1"
               >
-                <div className="text-3xl mb-3">{amenity.icon}</div>
+                <div className="flex justify-center mb-3"><amenity.Icon size={28} className="text-brand-gold" /></div>
                 <p className="text-white/65 text-xs font-medium tracking-wide uppercase">{amenity.label}</p>
               </motion.div>
             ))}
@@ -200,9 +201,9 @@ export default function HomePage() {
                   <h3 className="font-serif text-xl font-bold text-brand-charcoal mb-1">{property.name}</h3>
                   <p className="text-brand-clay text-sm mb-4">{property.tagline}</p>
                   <div className="flex items-center gap-4 text-xs text-brand-clay-dark mb-5 border-t border-brand-stone pt-4">
-                    <span>👥 {property.capacity} {t('apartments.guests')}</span>
-                    <span>🛏 {property.bedrooms} {t('apartments.bedrooms')}</span>
-                    <span>🌊 {property.view}</span>
+                    <span className="flex items-center gap-1"><Users size={12} /> {property.capacity} {t('apartments.guests')}</span>
+                    <span className="flex items-center gap-1"><BedDouble size={12} /> {property.bedrooms} {t('apartments.bedrooms')}</span>
+                    <span className="flex items-center gap-1"><Waves size={12} /> {property.view}</span>
                   </div>
                   <Link
                     href={`/apartments/${property.id}`}

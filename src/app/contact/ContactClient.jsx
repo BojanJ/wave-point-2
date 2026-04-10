@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { Sparkle, Phone, Mail, MapPin } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import properties from "../../../public/data/properties.json";
 
@@ -128,7 +129,7 @@ export default function ContactPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="text-center py-16"
                 >
-                  <div className="text-5xl mb-6">✦</div>
+                  <div className="flex justify-center mb-6"><Sparkle size={48} className="text-brand-gold" /></div>
                   <h3 className="heading-md text-brand-charcoal mb-3">
                     Thank you
                   </h3>
@@ -258,12 +259,12 @@ export default function ContactPage() {
             <div className="mt-6 grid grid-cols-2 gap-4">
               {[
                 {
-                  icon: "📞",
+                  Icon: Phone,
                   text: t("contact.phone"),
                   href: "tel:+306948145850",
                 },
                 {
-                  icon: "✉️",
+                  Icon: Mail,
                   text: t("contact.email"),
                   href: "mailto:contact@wavepoint-apartments.com",
                 },
@@ -272,7 +273,7 @@ export default function ContactPage() {
                   key={item.text}
                   className="text-center p-4 bg-brand-stone/40 border border-brand-stone"
                 >
-                  <div className="text-2xl mb-2">{item.icon}</div>
+                  <div className="flex justify-center mb-2"><item.Icon size={24} className="text-brand-clay" /></div>
                   <div className="text-xs text-brand-clay-dark">
                     <a href={item.href} className="text-inherit no-underline">
                       {item.text}
@@ -281,7 +282,7 @@ export default function ContactPage() {
                 </div>
               ))}
               <div className="col-span-2 text-center p-4 bg-brand-stone/40 border border-brand-stone">
-                <div className="text-2xl mb-2">📍</div>
+                <div className="flex justify-center mb-2"><MapPin size={24} className="text-brand-clay" /></div>
                 <div className="text-xs text-brand-clay-dark space-y-1">
                   <ul className="space-y-2.5">
                     <li>
