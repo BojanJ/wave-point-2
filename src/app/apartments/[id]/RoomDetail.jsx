@@ -107,14 +107,14 @@ export default function RoomDetail({ property }) {
         <button
           onClick={goToPrev}
           aria-label="Previous image"
-          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 bg-brand-charcoal/40 hover:bg-brand-charcoal/70 text-white p-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 rounded bg-brand-charcoal/40 hover:bg-brand-charcoal/70 text-white p-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
         >
           <ChevronLeft size={24} />
         </button>
         <button
           onClick={goToNext}
           aria-label="Next image"
-          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 bg-brand-charcoal/40 hover:bg-brand-charcoal/70 text-white p-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 rounded bg-brand-charcoal/40 hover:bg-brand-charcoal/70 text-white p-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
         >
           <ChevronRight size={24} />
         </button>
@@ -145,7 +145,7 @@ export default function RoomDetail({ property }) {
         </div>
 
         {/* Thumbnail Navigation — desktop only */}
-        <div className="hidden md:flex absolute md:bottom-8 md:right-12 gap-2">
+        <div className="hidden md:flex absolute bottom-8 right-12 gap-2">
           {images.map((img, i) => (
             <button
               key={i}
