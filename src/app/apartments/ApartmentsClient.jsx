@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { Users, BedDouble, ShowerHead, Waves } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import properties from '../../../public/data/properties.json';
 
@@ -88,19 +89,19 @@ export default function ApartmentsPage() {
 
                 <div className="flex flex-wrap gap-2 mb-6 pt-4 border-t border-brand-stone">
                   <div className="flex items-center gap-1 bg-brand-stone text-brand-charcoal text-xs px-3 py-1.5">
-                    <span>👥</span>
+                    <Users size={12} />
                     <span>{property.capacity} {t('apartments.guests')}</span>
                   </div>
                   <div className="flex items-center gap-1 bg-brand-stone text-brand-charcoal text-xs px-3 py-1.5">
-                    <span>🛏</span>
+                    <BedDouble size={12} />
                     <span>{property.bedrooms} {t('apartments.bedrooms')}</span>
                   </div>
                   <div className="flex items-center gap-1 bg-brand-stone text-brand-charcoal text-xs px-3 py-1.5">
-                    <span>🚿</span>
+                    <ShowerHead size={12} />
                     <span>{property.bathrooms} {t('apartments.bathrooms')}</span>
                   </div>
                   <div className="flex items-center gap-1 bg-brand-clay/15 text-brand-clay-dark text-xs px-3 py-1.5">
-                    <span>🌊</span>
+                    <Waves size={12} />
                     <span>{property.view}</span>
                   </div>
                 </div>

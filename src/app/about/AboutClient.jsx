@@ -1,5 +1,6 @@
 'use client';
 import { motion } from 'framer-motion';
+import { Handshake, Leaf, Sparkles, Check } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import ParallaxImage from '@/components/ParallaxImage';
 
@@ -7,9 +8,9 @@ export default function AboutPage() {
   const { t } = useLanguage();
 
   const values = [
-    { icon: '🤝', title: t('about.value_1'), desc: t('about.value_1_desc') },
-    { icon: '🌿', title: t('about.value_2'), desc: t('about.value_2_desc') },
-    { icon: '✨', title: t('about.value_3'), desc: t('about.value_3_desc') },
+    { Icon: Handshake, title: t('about.value_1'), desc: t('about.value_1_desc') },
+    { Icon: Leaf, title: t('about.value_2'), desc: t('about.value_2_desc') },
+    { Icon: Sparkles, title: t('about.value_3'), desc: t('about.value_3_desc') },
   ];
 
   const rules = [
@@ -102,7 +103,7 @@ export default function AboutPage() {
                 transition={{ duration: 0.6, delay: index * 0.15 }}
                 className="text-center p-10 bg-brand-sand border border-brand-stone hover:border-brand-clay transition-all duration-300"
               >
-                <div className="text-4xl mb-5">{value.icon}</div>
+                <div className="flex justify-center mb-5"><value.Icon size={36} className="text-brand-gold" /></div>
                 <h3 className="font-serif text-xl font-bold text-brand-charcoal mb-3">{value.title}</h3>
                 <p className="text-brand-charcoal-light text-sm leading-relaxed">{value.desc}</p>
               </motion.div>
@@ -130,7 +131,7 @@ export default function AboutPage() {
                   transition={{ duration: 0.4, delay: index * 0.08 }}
                   className="flex items-center gap-3 border border-white/10 px-5 py-4 hover:border-brand-gold/30 transition-colors"
                 >
-                  <span className="w-5 h-5 border border-brand-gold text-brand-gold flex items-center justify-center text-xs flex-shrink-0">✓</span>
+                  <span className="w-5 h-5 border border-brand-gold text-brand-gold flex items-center justify-center flex-shrink-0"><Check size={12} /></span>
                   <span className="text-white/75 text-sm">{rule}</span>
                 </motion.div>
               ))}

@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import { Phone, Mail, MapPin } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import WaveLogo from '@/components/WaveLogo';
 
@@ -60,10 +61,10 @@ export default function Footer() {
               {t('contact.contact_info_title')}
             </h4>
             <ul className="space-y-2.5 text-sm text-white/55">
-              <li>📞 <a href="tel:+306948145850" className="text-inherit no-underline">{t('contact.phone')}</a></li>
-              <li>✉️ <a href="mailto:contact@wavepoint-apartments.com" className="text-inherit no-underline">{t('contact.email')}</a></li>
-              <li>📍 <a href="https://maps.app.goo.gl/LEoZcePyCrqQsDQt9" className="text-inherit no-underline">{t('contact.address1')}</a></li>
-              <li>📍 <a href="https://maps.app.goo.gl/LEoZcePyCrqQsDQt9" className="text-inherit no-underline">{t('contact.address2')}</a></li>
+              <li className="flex items-center gap-2"><Phone size={14} className="flex-shrink-0" /><a href="tel:+306948145850" className="text-inherit no-underline">{t('contact.phone')}</a></li>
+              <li className="flex items-center gap-2"><Mail size={14} className="flex-shrink-0" /><a href="mailto:contact@wavepoint-apartments.com" className="text-inherit no-underline">{t('contact.email')}</a></li>
+              <li className="flex items-center gap-2"><MapPin size={14} className="flex-shrink-0" /><a href="https://maps.app.goo.gl/LEoZcePyCrqQsDQt9" className="text-inherit no-underline">{t('contact.address1')}</a></li>
+              <li className="flex items-center gap-2"><MapPin size={14} className="flex-shrink-0" /><a href="https://maps.app.goo.gl/LEoZcePyCrqQsDQt9" className="text-inherit no-underline">{t('contact.address2')}</a></li>
             </ul>
           </div>
         </div>

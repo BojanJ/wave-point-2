@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Sparkle } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 const WHATSAPP_NUMBER = '306948145850';
@@ -50,7 +51,7 @@ export default function ContactForm() {
           transition={{ duration: 0.5 }}
           className="text-center py-16"
         >
-          <div className="text-5xl mb-6">✦</div>
+          <div className="flex justify-center mb-6"><Sparkle size={48} className="text-brand-gold" /></div>
           <h3 className="heading-md text-brand-charcoal mb-3">
             {t('contact.form_success').split('!')[0]}!
           </h3>

@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { Check, Waves } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import GalleryGrid from '@/components/gallery/GalleryGrid';
 import galleryImages from '../../../../public/data/gallery.json';
@@ -130,7 +131,7 @@ export default function RoomDetail({ property }) {
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {property.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-3 text-brand-charcoal-light">
-                    <span className="w-5 h-5 bg-brand-gold/15 text-brand-gold rounded-full flex items-center justify-center text-xs flex-shrink-0">✓</span>
+                    <span className="w-5 h-5 bg-brand-gold/15 text-brand-gold rounded-full flex items-center justify-center flex-shrink-0"><Check size={12} /></span>
                     {feature}
                   </li>
                 ))}
@@ -225,7 +226,7 @@ export default function RoomDetail({ property }) {
               {/* View Info */}
               <div className="mt-4 p-5 bg-brand-stone/40 border border-brand-stone">
                 <div className="flex items-center gap-3">
-                  <span className="text-2xl">🌊</span>
+                  <Waves size={24} className="text-brand-gold flex-shrink-0" />
                   <div>
                     <div className="text-sm font-medium text-brand-charcoal">{property.view}</div>
                     <div className="text-xs text-brand-clay mt-0.5">{property.floor}</div>
