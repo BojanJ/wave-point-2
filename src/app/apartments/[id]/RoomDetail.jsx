@@ -57,6 +57,11 @@ export default function RoomDetail({ property }) {
     touchStartX.current = null;
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'ArrowLeft') goToPrev();
+    else if (e.key === 'ArrowRight') goToNext();
+  };
+
   const inquireHref = (() => {
     const params = new URLSearchParams({ room: property.id });
     if (checkin) params.set('checkin', checkin);
@@ -82,6 +87,10 @@ export default function RoomDetail({ property }) {
         className="relative h-screen max-h-[700px] overflow-hidden"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
+        onKeyDown={handleKeyDown}
+        tabIndex={0}
+        role="region"
+        aria-label="Image gallery"
       >
         <motion.img
           key={activeImage}
@@ -98,14 +107,14 @@ export default function RoomDetail({ property }) {
         <button
           onClick={goToPrev}
           aria-label="Previous image"
-          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 bg-brand-charcoal/40 hover:bg-brand-charcoal/70 text-white p-2 transition-colors"
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 bg-brand-charcoal/40 hover:bg-brand-charcoal/70 text-white p-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
         >
           <ChevronLeft size={24} />
         </button>
         <button
           onClick={goToNext}
           aria-label="Next image"
-          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 bg-brand-charcoal/40 hover:bg-brand-charcoal/70 text-white p-2 transition-colors"
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 bg-brand-charcoal/40 hover:bg-brand-charcoal/70 text-white p-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
         >
           <ChevronRight size={24} />
         </button>
