@@ -62,7 +62,8 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm text-white/55">
               <li>📞 <a href="tel:+306948145850" className="text-inherit no-underline">{t('contact.phone')}</a></li>
               <li>✉️ <a href="mailto:contact@wavepoint-apartments.com" className="text-inherit no-underline">{t('contact.email')}</a></li>
-              <li>📍 {t('contact.address')}</li>
+              <li>📍 <a href="https://maps.app.goo.gl/LEoZcePyCrqQsDQt9" className="text-inherit no-underline">{t('contact.address1')}</a></li>
+              <li>📍 <a href="https://maps.app.goo.gl/LEoZcePyCrqQsDQt9" className="text-inherit no-underline">{t('contact.address2')}</a></li>
             </ul>
           </div>
         </div>
