@@ -1,11 +1,13 @@
 'use client';
-import { useEffect, useCallback } from 'react';
+import { useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Lightbox({ images, currentIndex, onClose, onPrev, onNext, onGoTo }) {
   const { t } = useLanguage();
   const current = images[currentIndex];
+  const thumbStripRef = useRef(null);
+  const activeThumbRef = useRef(null);
 
   const handleKeyDown = useCallback(
     (e) => {
@@ -24,6 +26,16 @@ export default function Lightbox({ images, currentIndex, onClose, onPrev, onNext
       document.body.style.overflow = '';
     };
   }, [handleKeyDown]);
+
+  useEffect(() => {
+    if (activeThumbRef.current && thumbStripRef.current) {
+      const strip = thumbStripRef.current;
+      const thumb = activeThumbRef.current;
+      const stripCenter = strip.offsetWidth / 2;
+      const thumbCenter = thumb.offsetLeft + thumb.offsetWidth / 2;
+      strip.scrollTo({ left: thumbCenter - stripCenter, behavior: 'smooth' });
+    }
+  }, [currentIndex]);
 
   return (
     <motion.div
@@ -107,10 +119,11 @@ export default function Lightbox({ images, currentIndex, onClose, onPrev, onNext
 
       {/* Thumbnail strip */}
       {images.length > 1 && (
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 max-w-xs overflow-x-auto scrollbar-hide px-2">
+        <div ref={thumbStripRef} className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 max-w-xs overflow-x-auto scrollbar-hide px-2">
           {images.map((img, i) => (
             <button
               key={img.id}
+              ref={i === currentIndex ? activeThumbRef : null}
               onClick={(e) => { e.stopPropagation(); onGoTo(i); }}
               className={`flex-shrink-0 w-12 h-8 rounded overflow-hidden border-2 transition-all ${
                 i === currentIndex ? 'border-white scale-110' : 'border-white/30 opacity-50'
