@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import properties from "../../../public/data/properties.json";
@@ -45,14 +46,15 @@ function FAQItem({ question, answer }) {
 
 export default function ContactPage() {
   const { t } = useLanguage();
+  const searchParams = useSearchParams();
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    room: "",
-    checkin: "",
-    checkout: "",
-    guests: "2",
+    room: searchParams.get("room") || "",
+    checkin: searchParams.get("checkin") || "",
+    checkout: searchParams.get("checkout") || "",
+    guests: searchParams.get("guests") || "2",
     message: "",
   });
 
