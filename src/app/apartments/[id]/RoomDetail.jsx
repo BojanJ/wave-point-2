@@ -1,8 +1,8 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Check, Waves } from 'lucide-react';
+import { Check, Waves, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import GalleryGrid from '@/components/gallery/GalleryGrid';
 import galleryImages from '../../../../public/data/gallery.json';
@@ -39,6 +39,24 @@ export default function RoomDetail({ property }) {
   const images = imageMap[property.id] || imageMap['classic'];
   const roomGalleryImages = galleryImages.filter((img) => img.category === property.id);
 
+  const touchStartX = useRef(null);
+
+  const goToPrev = () => setActiveImage((i) => (i === 0 ? images.length - 1 : i - 1));
+  const goToNext = () => setActiveImage((i) => (i === images.length - 1 ? 0 : i + 1));
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 50) {
+      delta > 0 ? goToNext() : goToPrev();
+    }
+    touchStartX.current = null;
+  };
+
   const inquireHref = (() => {
     const params = new URLSearchParams({ room: property.id });
     if (checkin) params.set('checkin', checkin);
@@ -60,7 +78,11 @@ export default function RoomDetail({ property }) {
       </div>
 
       {/* Hero Gallery */}
-      <div className="relative h-screen max-h-[700px] overflow-hidden">
+      <div
+        className="relative h-screen max-h-[700px] overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         <motion.img
           key={activeImage}
           initial={{ opacity: 0 }}
@@ -71,6 +93,22 @@ export default function RoomDetail({ property }) {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-brand-charcoal/15 via-transparent to-brand-charcoal/70" />
+
+        {/* Arrow Navigation */}
+        <button
+          onClick={goToPrev}
+          aria-label="Previous image"
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 bg-brand-charcoal/40 hover:bg-brand-charcoal/70 text-white p-2 transition-colors"
+        >
+          <ChevronLeft size={24} />
+        </button>
+        <button
+          onClick={goToNext}
+          aria-label="Next image"
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 bg-brand-charcoal/40 hover:bg-brand-charcoal/70 text-white p-2 transition-colors"
+        >
+          <ChevronRight size={24} />
+        </button>
 
         {/* Property Info Overlay */}
         <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
@@ -83,8 +121,22 @@ export default function RoomDetail({ property }) {
           </div>
         </div>
 
-        {/* Thumbnail Navigation */}
-        <div className="absolute top-40 left-4 md:top-auto md:bottom-8 md:right-12 flex gap-2">
+        {/* Dot Indicators — mobile only */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 md:hidden">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveImage(i)}
+              aria-label={`Go to image ${i + 1}`}
+              className={`w-2 h-2 rounded-full transition-all ${
+                i === activeImage ? 'bg-brand-gold scale-125' : 'bg-white/50'
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Thumbnail Navigation — desktop only */}
+        <div className="hidden md:flex absolute md:bottom-8 md:right-12 gap-2">
           {images.map((img, i) => (
             <button
               key={i}
