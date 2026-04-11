@@ -62,8 +62,8 @@
   --color-terracotta-900: #822414;
   --color-terracotta-950: #470e05;
 
-  --font-sans: "Inter", sans-serif;
-  --font-serif: "Playfair Display", "Lora", serif;
+  --font-sans: "Montserrat", "Inter", sans-serif;
+  --font-serif: "Cormorant Garamond", "Playfair Display", serif;
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-wave: wave 3s ease-in-out infinite;

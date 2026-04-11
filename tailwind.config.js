@@ -74,8 +74,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        serif: ['Playfair Display', 'Lora', 'serif'],
+        sans: ['Montserrat', 'Inter', 'sans-serif'],
+        serif: ['Cormorant Garamond', 'Playfair Display', 'serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

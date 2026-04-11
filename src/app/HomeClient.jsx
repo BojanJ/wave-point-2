@@ -6,6 +6,7 @@ import { Wifi, Waves, CookingPot, Snowflake, Car, Umbrella, Sunrise, Users, BedD
 import { useLanguage } from '@/context/LanguageContext';
 import ParallaxImage from '@/components/ParallaxImage';
 import WaveLogo from '@/components/WaveLogo';
+import StackingSection from '@/components/StackingSection';
 import properties from '../../public/data/properties.json';
 
 function AnimatedSection({ children, className }) {
@@ -26,7 +27,6 @@ function AnimatedSection({ children, className }) {
 
 export default function HomePage() {
   const { t } = useLanguage();
-  const featuredProperties = properties.slice(0, 3);
 
   const amenities = [
     { key: 'wifi', Icon: Wifi, label: t('home.amenity_wifi') },
@@ -161,67 +161,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Apartments */}
-      <section className="section-padding bg-brand-sand-dark">
-        <div className="container-max">
-          <AnimatedSection className="text-center mb-16">
-            <p className="text-brand-clay text-xs tracking-[0.3em] uppercase mb-4">Selection</p>
-            <h2 className="heading-lg text-brand-charcoal mb-5">{t('home.featured_title')}</h2>
-            <div className="w-12 h-px bg-brand-gold mx-auto" />
-          </AnimatedSection>
+      {/* Stacking Apartment Gallery */}
+      <section>
+        <AnimatedSection className="text-center py-20 px-4 bg-brand-sand">
+          <p className="text-brand-clay text-xs tracking-[0.3em] uppercase mb-4">The Collection</p>
+          <h2 className="heading-lg text-brand-charcoal mb-5">{t('home.featured_title')}</h2>
+          <div className="w-12 h-px bg-brand-gold mx-auto mb-6" />
+          <p className="text-brand-clay text-sm max-w-md mx-auto leading-relaxed font-light">
+            Scroll through our four apartments — each a world of its own.
+          </p>
+        </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {featuredProperties.map((property, index) => (
-              <motion.div
-                key={property.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: index * 0.15 }}
-                className="group bg-brand-sand rounded-3xl overflow-hidden border border-brand-stone hover:border-brand-clay transition-all duration-400 hover:-translate-y-1"
-              >
-                <div className="relative h-60 overflow-hidden">
-                  <img
-                    src={`https://images.unsplash.com/photo-${index === 0 ? '1566073771259-6a8506099945' : index === 1 ? '1615880484746-a134be9a6ecf' : '1582719508461-905c673771fd'}?w=600&q=80`}
-                    alt={property.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-600"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="text-xs font-medium tracking-[0.15em] bg-brand-sand/90 text-brand-charcoal px-3 py-1">
-                      {property.badge}
-                    </span>
-                  </div>
-                  <div className="absolute top-4 right-4">
-                    <span className="bg-brand-charcoal/80 backdrop-blur-sm text-white text-xs font-medium px-3 py-1">
-                      {property.price_from}
-                    </span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-serif text-xl font-bold text-brand-charcoal mb-1">{property.name}</h3>
-                  <p className="text-brand-clay text-sm mb-4">{property.tagline}</p>
-                  <div className="flex items-center gap-4 text-xs text-brand-clay-dark mb-5 border-t border-brand-stone pt-4">
-                    <span className="flex items-center gap-1"><Users size={12} /> {property.capacity} {t('apartments.guests')}</span>
-                    <span className="flex items-center gap-1"><BedDouble size={12} /> {property.bedrooms} {t('apartments.bedrooms')}</span>
-                    <span className="flex items-center gap-1"><Waves size={12} /> {property.view}</span>
-                  </div>
-                  <Link
-                    href={`/apartments/${property.id}`}
-                    className="block w-full text-center btn-primary text-xs py-3"
-                  >
-                    {t('apartments.view_details')}
-                  </Link>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        <StackingSection properties={properties} />
 
-          <AnimatedSection className="text-center mt-14">
-            <Link href="/apartments" className="btn-outline text-sm px-10 py-4">
-              {t('home.view_all')}
-            </Link>
-          </AnimatedSection>
-        </div>
+        <AnimatedSection className="text-center py-16 px-4 bg-brand-charcoal">
+          <Link href="/apartments" className="btn-outline border-brand-clay text-brand-clay-light hover:bg-brand-clay hover:text-white text-sm px-10 py-4">
+            {t('home.view_all')}
+          </Link>
+        </AnimatedSection>
       </section>
 
       {/* Parallax CTA Section */}
