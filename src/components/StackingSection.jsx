@@ -26,7 +26,7 @@ const GRADIENT_SIDES = ['left', 'right', 'left', 'right'];
  * Individual stacking card — scroll-driven via Framer Motion transforms
  * passed from the parent via `progress` MotionValue.
  */
-function ApartmentCard({ property, index, total, progress }) {
+function ApartmentCard({ property, index, total, progress, t }) {
   const N = total;
   const SLIDE_DURATION = 0.12; // fraction of total progress for each animation
 
@@ -145,7 +145,7 @@ function ApartmentCard({ property, index, total, progress }) {
               href={`/apartments/${property.id}`}
               className="btn-primary text-xs px-8 py-3"
             >
-              View Details
+              {t('apartments.view_details')}
             </Link>
           </div>
         </div>
@@ -198,6 +198,7 @@ export default function StackingSection({ properties }) {
               index={index}
               total={N}
               progress={scrollYProgress}
+              t={t}
             />
           ))}
         </div>

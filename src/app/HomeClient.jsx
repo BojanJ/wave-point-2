@@ -168,7 +168,7 @@ export default function HomePage() {
           <h2 className="heading-lg text-brand-charcoal mb-5">{t('home.featured_title')}</h2>
           <div className="w-12 h-px bg-brand-gold mx-auto mb-6" />
           <p className="text-brand-clay text-sm max-w-md mx-auto leading-relaxed font-light">
-            Scroll through our four apartments — each a world of its own.
+            {t('home.stacking_intro')}
           </p>
         </AnimatedSection>
 
