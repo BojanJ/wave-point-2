@@ -101,7 +101,7 @@ function ApartmentCard({ property, index, total, progress, t }) {
         >
           {/* Room number — large editorial serif in gold */}
           <p
-            className="font-serif text-brand-gold leading-none select-none"
+            className="font-serif text-brand-gold leading-none"
             style={{ fontSize: 'clamp(5rem, 14vw, 11rem)', letterSpacing: '-0.03em', opacity: 0.95 }}
             aria-hidden="true"
           >
@@ -131,8 +131,8 @@ function ApartmentCard({ property, index, total, progress, t }) {
               gradientSide === 'right' ? 'justify-end' : 'justify-start'
             }`}
           >
-            <span className="flex items-center gap-1.5"><Users size={13} />{property.capacity} guests</span>
-            <span className="flex items-center gap-1.5"><BedDouble size={13} />{property.bedrooms} bed</span>
+            <span className="flex items-center gap-1.5"><Users size={13} />{property.capacity} {t('apartments.guests')}</span>
+            <span className="flex items-center gap-1.5"><BedDouble size={13} />{property.bedrooms} {t('apartments.bedrooms')}</span>
             <span className="flex items-center gap-1.5"><Waves size={13} />{property.view}</span>
           </div>
 
@@ -154,7 +154,7 @@ function ApartmentCard({ property, index, total, progress, t }) {
       {/* Scroll hint — only on the first card */}
       {index === 0 && (
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40">
-          <p className="text-[10px] font-sans tracking-[0.25em] uppercase">Scroll</p>
+          <p className="text-[10px] font-sans tracking-[0.25em] uppercase">{t('common.scroll')}</p>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 1.6, ease: 'easeInOut' }}
@@ -244,8 +244,8 @@ export default function StackingSection({ properties }) {
                 <h3 className="font-serif text-white text-2xl font-bold mb-1">{property.name}</h3>
                 <p className="text-white/65 font-sans text-sm leading-relaxed mb-4">{property.tagline}</p>
                 <div className="flex gap-3 text-xs font-sans text-white/55 mb-5">
-                  <span className="flex items-center gap-1"><Users size={12} />{property.capacity} guests</span>
-                  <span className="flex items-center gap-1"><BedDouble size={12} />{property.bedrooms} bed</span>
+                  <span className="flex items-center gap-1"><Users size={12} />{property.capacity} {t('apartments.guests')}</span>
+                  <span className="flex items-center gap-1"><BedDouble size={12} />{property.bedrooms} {t('apartments.bedrooms')}</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <span className="font-serif text-brand-gold font-semibold text-base">{property.price_from}</span>
