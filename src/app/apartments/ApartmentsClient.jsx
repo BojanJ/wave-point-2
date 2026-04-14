@@ -50,8 +50,13 @@ export default function ApartmentsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: index * 0.1 }}
-              className="group bg-brand-sand border border-brand-stone rounded-3xl overflow-hidden hover:border-brand-clay transition-all duration-500 hover:-translate-y-1"
+              className="group relative cursor-pointer bg-brand-sand border border-brand-stone rounded-3xl overflow-hidden hover:border-brand-clay transition-all duration-500 hover:-translate-y-1"
             >
+              <Link
+                href={`/apartments/${property.id}`}
+                className="absolute inset-0 z-0"
+                aria-label={property.name}
+              />
               <div className="relative h-72 overflow-hidden">
                 <img
                   src={apartmentImages[property.id]}
@@ -106,7 +111,7 @@ export default function ApartmentsPage() {
                   </div>
                 </div>
 
-                <div className="flex gap-3">
+                <div className="relative z-10 flex gap-3">
                   <Link
                     href={`/apartments/${property.id}`}
                     className="flex-1 text-center btn-primary text-xs py-3"
