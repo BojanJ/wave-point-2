@@ -178,7 +178,7 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: index * 0.15 }}
-                className="group bg-brand-sand rounded-3xl overflow-hidden border border-brand-stone hover:border-brand-clay transition-all duration-400 hover:-translate-y-1"
+                className="group relative cursor-pointer bg-brand-sand rounded-3xl overflow-hidden border border-brand-stone hover:border-brand-clay transition-all duration-400 hover:-translate-y-1"
               >
                 <div className="relative h-60 overflow-hidden">
                   <img
@@ -207,11 +207,16 @@ export default function HomePage() {
                   </div>
                   <Link
                     href={`/apartments/${property.id}`}
-                    className="block w-full text-center btn-primary text-xs py-3"
+                    className="relative z-10 block w-full text-center btn-primary text-xs py-3"
                   >
                     {t('apartments.view_details')}
                   </Link>
                 </div>
+                <Link
+                  href={`/apartments/${property.id}`}
+                  className="absolute inset-0 z-0"
+                  aria-label={property.name}
+                />
               </motion.div>
             ))}
           </div>
